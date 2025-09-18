@@ -1,0 +1,146 @@
+import logging
+from typing import Optional
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+from itertools import product 
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
+
+DEFAULT_BASE_URL = "https://irankohan.ir"
+
+
+def build_session(retries: int = 3, backoff_factor: float = 0.3) -> requests.Session:
+    session = requests.Session()
+    retry = Retry(
+        total=retries,
+        read=retries,
+        connect=retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=(500, 502, 503, 504),
+        allowed_methods=frozenset(["GET", "POST"]),
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+
+def _safe_to_int(value) -> Optional[int]:
+    """تبدیل ایمن به int؛ اگر قابل تبدیل نیست None برمی‌گرداند."""
+    if value is None:
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        try:
+            return int(float(value))
+        except (TypeError, ValueError):
+            return None
+
+
+def calculate(
+    session: requests.Session,
+    sample_id: int,
+    material: int,
+    size: int,
+    print_kind: int,
+    tirazh: int,
+    delivery_id: int,
+    work_id: int = 3,
+    copy_count: int = 0,
+    side: int = 1,
+    page_count: int = 0,
+    base_url: str = DEFAULT_BASE_URL,
+    timeout: float = 5.0,
+    ) -> int:
+    url = f"{base_url}/order/CalculateSamplePrice"
+    params = {
+        "sampleID": sample_id,
+        "workTypeID": work_id,
+        "tirazh": 0,
+        "tirazhCount": tirazh,
+        "printKindID": print_kind,
+        "materialID": material,
+        "sizeID": size,
+        "tool": 0,
+        "arz": 0,
+        "sideID": side,
+        "delivery": delivery_id,
+        "copyCount": copy_count,
+        "pageCount": page_count,
+        "sahafiId": 0,
+        "havePrint": "false",
+        "haveWrite": "false",
+        "MultiLatTypeVal": 0,
+        "AttGifID": 0,
+    }
+    resp = session.get(url, params=params, timeout=timeout)
+    resp.raise_for_status()
+
+    j = resp.json()
+    raw = _safe_to_int(j)
+    if raw is None:
+        raise ValueError(f"API returned null or invalid value for sample price \n{params}")
+
+    return raw // 10
+
+
+def calculate_adt(
+    session: requests.Session,
+    sample_id: int,
+    sample_print_kind: int,
+    sample_material_kind: int,
+    adt_id: int,
+    size: int,
+    tirazh: int,
+    delivery_id: int,
+    work_id: int = 3,
+    side: int = 1,
+    str_count: str = "_0",
+    copy_count: int = 1,
+    base_url: str = DEFAULT_BASE_URL,
+    timeout: float = 5.0,
+) -> int:
+    url_adt = f"{base_url}/order/CalculateAdtPrice"
+    params = {
+        "id": adt_id,
+        "workTypeID": work_id,
+        "count": 1,
+        "tirazh": 0,
+        "tirazhCount": tirazh,
+        "deliveryID": delivery_id,
+        "strCount": str_count,
+        "MultiLatTypeVal": 0,
+        "sampleSizeID": size,
+        "tool": 0,
+        "arz": 0,
+        "sampleID": sample_id,
+        "multiCopyCount": copy_count,
+        "pageCount": 0,
+        "parameterID": 0,
+        "side": side,
+        "sahafiId": 0,
+        "sampleMaterialID": sample_material_kind,
+        "samplePrintKindID": sample_print_kind,
+    }
+    resp = session.get(url_adt, params=params, timeout=timeout)
+    resp.raise_for_status()
+
+    j = resp.json()
+    raw = _safe_to_int(j)
+    if raw is None:
+        raise ValueError(f"API returned null or invalid value for adt price \n{params}")
+
+    return raw // 10
+
+
+def generate_combinations(product_config):
+    keys = list(product_config.keys())
+    values = list(product_config.values())
+    
+
+    for combo in product(*values):
+        yield dict(zip(keys, combo))
+        
