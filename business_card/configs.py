@@ -14,9 +14,10 @@ prod = {
         },
         "side":{1, 2},  
         "tirazh": [1, 50, 100, 200, 300, 500, 1000],
-
     }
 }
 
-p1 = Product(name="business-card", config=prod)
-p1.calculate_prices()
+
+
+Product(name="business-card", config=prod).calculate_prices()
+
