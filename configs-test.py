@@ -9,11 +9,9 @@ prod = {
         "size":{
             74: "9*5",
             75: "8.5*5.5",
-            76: "9*6",
-            77: "5*5",
         },
-        "side":{1, 2},  
-        "tirazh": [1, 50, 100, 200, 300, 500, 1000],
+        'side': {1: 'یکرو',2: 'دورو'},
+        "tirazh": [1, 50],
     },
     "cover":{
         'workTypeID': {3},
@@ -23,12 +21,12 @@ prod = {
         'multiCopyCount': {1},
         'sampleMaterialID': {1299}, 
         'samplePrintKindID': {1122},
-        'id': {15889, 15890, 15891, 15892, 15893},
-        'side': {1,2},
-        'tirazhCount': [1, 50, 100, 200, 300, 500, 1000],
+        'id': {15889: 'سلفون مخمل', 15890: 'سلفون مات'},
+        'side': {1: 'یکرو',2: 'دورو'},
+        'tirazhCount': [1, 50],
     }
 }
 
-p1 = Product(name="business-card", config=prod)
+p1 = Product(name="کارت ویزیت گلاسه", config=prod)
 p1.calculate_prices()
 

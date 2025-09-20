@@ -139,8 +139,16 @@ def calculate_adt(
 def generate_combinations(product_config):
     keys = list(product_config.keys())
     values = list(product_config.values())
-    
 
     for combo in product(*values):
-        yield dict(zip(keys, combo))
-        
+        params_api = dict(zip(keys, combo))  # برای API
+        params_display = {}
+
+        for k, val in params_api.items():
+            v = product_config[k]
+            if isinstance(v, dict):
+                params_display[k] = v[val]
+            elif isinstance(v, (list, set)) and len(v) > 1:
+                params_display[k] = val
+
+        yield params_api, params_display
