@@ -50,3 +50,4 @@ python -m gui.main_gui
 
 ```powershell
 pyinstaller --onefile --windowed --name="Price Crawler" --icon="icon.ico" --add-data "configs.json;." --add-data "icon.ico;." gui/main_gui.py
+```
