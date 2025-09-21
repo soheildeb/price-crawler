@@ -1,94 +1,89 @@
 {
-  "کارت ویزیت": {
-    "گلاسه": {
-      "base": {
-        "sample_id": [2222],
-        "material": [1093],
-        "delivery_id": [1213],
-        "print_kind": [1047],
-        "size": { "74": "9*5", "75": "8.5*5.5" },
-        "side": [1, 2],
-        "tirazh": [1, 50, 100]
-      },
-      "cover": {
-        "id": [15889, 15890],
-        "deliveryID": [1518],
-        "sampleSizeID": [288],
-        "sampleID": [2399],
-        "multiCopyCount": [1],
-        "sampleMaterialID": [1299],
-        "samplePrintKindID": [1122],
-        "side": [1, 2],
-        "tirazhCount": [1, 50, 100]
-      }
-    },
-        "کتان": {
-      "base": {
-        "sample_id": [2222],
-        "material": [1093],
-        "delivery_id": [1213],
-        "print_kind": [1047],
-        "size": { "74": "9*5", "75": "8.5*5.5" },
-        "side": [1, 2],
-        "tirazh": [1, 50, 100]
-      },
-      "cover": {
-        "id": [15889, 15890],
-        "deliveryID": [1518],
-        "sampleSizeID": [288],
-        "sampleID": [2399],
-        "multiCopyCount": [1],
-        "sampleMaterialID": [1299],
-        "samplePrintKindID": [1122],
-        "side": [1, 2],
-        "tirazhCount": [1, 50, 100]
-      }
-    }
-  },
-  "بروشور": {
+  "کارت دعوت": {
     "یک لت": {
       "base": {
-        "sample_id": [2222],
-        "material": [1093],
-        "delivery_id": [1213],
-        "print_kind": [1047],
-        "size": { "74": "9*5", "75": "8.5*5.5" },
-        "side": [1, 2],
-        "tirazh": [1, 50, 100]
+        "sample_id": [
+          2193
+        ],
+        "delivery_id": [
+          1037
+        ],
+        "print_kind": [
+          1014
+        ],
+        "side": [
+          1,
+          2
+        ],
+        "material": {
+          "1019": "کتان 300 گرم",
+          "1020": "کرافت 300 گرم",
+          "3397": "گلاسه 250 گرم",
+          "3398": "گلاسه 300 گرم"
+        },
+        "size": {
+          "22": "14 در 10 سانتی‌متر",
+          "23": "12.5 در 17.5 سانتی‌متر",
+          "24": "15 در 15 سانتی‌متر",
+          "25": "14 در 20 سانتی‌متر"
+        },
+        "tirazh": [
+          1,
+          10,
+          20,
+          30,
+          50,
+          100,
+          200,
+          300,
+          500,
+          1000
+        ]
       },
-      "cover": {
-        "id": [15889, 15890],
-        "deliveryID": [1518],
-        "sampleSizeID": [288],
-        "sampleID": [2399],
-        "multiCopyCount": [1],
-        "sampleMaterialID": [1299],
-        "samplePrintKindID": [1122],
-        "side": [1, 2],
-        "tirazhCount": [1, 50, 100]
-      }
-    },
-        "دو لت": {
-      "base": {
-        "sample_id": [2222],
-        "material": [1093],
-        "delivery_id": [1213],
-        "print_kind": [1047],
-        "size": { "74": "9*5", "75": "8.5*5.5" },
-        "side": [1, 2],
-        "tirazh": [1, 50, 100]
-      },
-      "cover": {
-        "id": [15889, 15890],
-        "deliveryID": [1518],
-        "sampleSizeID": [288],
-        "sampleID": [2399],
-        "multiCopyCount": [1],
-        "sampleMaterialID": [1299],
-        "samplePrintKindID": [1122],
-        "side": [1, 2],
-        "tirazhCount": [1, 50, 100]
+      "روکش سلفون": {
+        "deliveryID": [
+          1518
+        ],
+        "sampleID": [
+          2193
+        ],
+        "sampleMaterialID": [
+          1019
+        ],
+        "samplePrintKindID": [
+          1014
+        ],
+        "sampleSizeID": [
+          288
+        ],
+        "id": {
+          "4117":"سلفون مات",
+          "4118":"سلفون براق",
+          "4119":"سلفون مخمل"
+        },
+        "side": [
+          1,
+          2
+        ],
+        "sampleSizeID": {
+          "22": "14 در 10 سانتی‌متر",
+          "23": "12.5 در 17.5 سانتی‌متر",
+          "24": "15 در 15 سانتی‌متر",
+          "25": "14 در 20 سانتی‌متر"
+        },
+        "tirazhCount": [
+          1,
+          10,
+          20,
+          30,
+          50,
+          100,
+          200,
+          300,
+          500,
+          1000
+        ]
       }
     }
-}
+  }
 }

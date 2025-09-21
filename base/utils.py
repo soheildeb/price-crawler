@@ -1,12 +1,10 @@
-import logging
-from typing import Optional
+from typing import  
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from itertools import product 
+from typing import Any, Dict, Iterable, List
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
 
 DEFAULT_BASE_URL = "https://irankohan.ir"
 
@@ -135,20 +133,30 @@ def calculate_adt(
 
     return raw // 10
 
+def _normalize_options(v: Any) -> List[Any]:
+    if isinstance(v, dict):
+        return list(v.keys())
+    if isinstance(v, (list, tuple, set)):
+        return list(v)
+    return [v]
 
-def generate_combinations(product_config):
+def generate_combinations(product_config: Dict[str, Any], include_singletons_in_display: bool = False):
     keys = list(product_config.keys())
-    values = list(product_config.values())
+    options_list = [_normalize_options(product_config[k]) for k in keys]
 
-    for combo in product(*values):
-        params_api = dict(zip(keys, combo))  # برای API
+    for combo in product(*options_list):
+        params_api = dict(zip(keys, combo))
         params_display = {}
 
-        for k, val in params_api.items():
-            v = product_config[k]
-            if isinstance(v, dict):
-                params_display[k] = v[val]
-            elif isinstance(v, (list, set)) and len(v) > 1:
-                params_display[k] = val
+        for k, chosen in params_api.items():
+            original = product_config[k]
+            if isinstance(original, dict):
+                params_display[k] = original[chosen]
+            elif isinstance(original, (list, tuple, set)):
+                if include_singletons_in_display or len(original) > 1:
+                    params_display[k] = chosen
+            else:
+                if include_singletons_in_display:
+                    params_display[k] = chosen
 
         yield params_api, params_display
