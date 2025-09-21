@@ -25,7 +25,7 @@ python -m venv venv
 .\venv\Scripts\Activate
 ```
 
-```CMD
+```cmd
 venv\Scripts\activate.bat
 ```
 
