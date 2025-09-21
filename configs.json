@@ -1,0 +1,94 @@
+{
+  "کارت ویزیت": {
+    "گلاسه": {
+      "base": {
+        "sample_id": [2222],
+        "material": [1093],
+        "delivery_id": [1213],
+        "print_kind": [1047],
+        "size": { "74": "9*5", "75": "8.5*5.5" },
+        "side": [1, 2],
+        "tirazh": [1, 50, 100]
+      },
+      "cover": {
+        "id": [15889, 15890],
+        "deliveryID": [1518],
+        "sampleSizeID": [288],
+        "sampleID": [2399],
+        "multiCopyCount": [1],
+        "sampleMaterialID": [1299],
+        "samplePrintKindID": [1122],
+        "side": [1, 2],
+        "tirazhCount": [1, 50, 100]
+      }
+    },
+        "کتان": {
+      "base": {
+        "sample_id": [2222],
+        "material": [1093],
+        "delivery_id": [1213],
+        "print_kind": [1047],
+        "size": { "74": "9*5", "75": "8.5*5.5" },
+        "side": [1, 2],
+        "tirazh": [1, 50, 100]
+      },
+      "cover": {
+        "id": [15889, 15890],
+        "deliveryID": [1518],
+        "sampleSizeID": [288],
+        "sampleID": [2399],
+        "multiCopyCount": [1],
+        "sampleMaterialID": [1299],
+        "samplePrintKindID": [1122],
+        "side": [1, 2],
+        "tirazhCount": [1, 50, 100]
+      }
+    }
+  },
+  "بروشور": {
+    "یک لت": {
+      "base": {
+        "sample_id": [2222],
+        "material": [1093],
+        "delivery_id": [1213],
+        "print_kind": [1047],
+        "size": { "74": "9*5", "75": "8.5*5.5" },
+        "side": [1, 2],
+        "tirazh": [1, 50, 100]
+      },
+      "cover": {
+        "id": [15889, 15890],
+        "deliveryID": [1518],
+        "sampleSizeID": [288],
+        "sampleID": [2399],
+        "multiCopyCount": [1],
+        "sampleMaterialID": [1299],
+        "samplePrintKindID": [1122],
+        "side": [1, 2],
+        "tirazhCount": [1, 50, 100]
+      }
+    },
+        "دو لت": {
+      "base": {
+        "sample_id": [2222],
+        "material": [1093],
+        "delivery_id": [1213],
+        "print_kind": [1047],
+        "size": { "74": "9*5", "75": "8.5*5.5" },
+        "side": [1, 2],
+        "tirazh": [1, 50, 100]
+      },
+      "cover": {
+        "id": [15889, 15890],
+        "deliveryID": [1518],
+        "sampleSizeID": [288],
+        "sampleID": [2399],
+        "multiCopyCount": [1],
+        "sampleMaterialID": [1299],
+        "samplePrintKindID": [1122],
+        "side": [1, 2],
+        "tirazhCount": [1, 50, 100]
+      }
+    }
+}
+}
