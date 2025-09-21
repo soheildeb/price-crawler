@@ -1,0 +1,37 @@
+# Price Crawler
+
+A simple desktop application (Tkinter) for selecting categories/products and updating prices.  
+Features include a GUI, progress bar, category-based outputs (separate output files per category), and optional standalone EXE build.
+
+---
+
+## Requirements
+- Python 3.9 or newer  
+- pip
+
+---
+
+## Installation & Run (all steps in one place)
+
+1. (Optional) Create a virtual environment:
+```powershell
+python -m venv venv
+
+2. Activate the virtual environment:
+```powershell
+.\venv\Scripts\Activate
+```CMD
+venv\Scripts\activate.bat
+
+3. Install Python dependencies:
+```powershell
+pip install -r requirements.txt
+
+4. Run the app directly from source:
+```powershell
+python -m gui.main_gui
+
+5. (Optional) Build a standalone Windows EXE:
+```powershell
+pyinstaller --onefile --windowed --name="Price Crawler" --icon="icon.ico" --add-data "configs.json;." --add-data "icon.ico;." gui/main_gui.py
+
